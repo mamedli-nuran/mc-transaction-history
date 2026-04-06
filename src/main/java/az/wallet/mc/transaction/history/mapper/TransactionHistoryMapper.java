@@ -23,8 +23,7 @@ public class TransactionHistoryMapper {
 
     public TransactionSaveResponse createSavedTransactionResponse(TransactionHistory transactionHistory) {
         return TransactionSaveResponse.builder()
-                .id(transactionHistory.getId())
-                .status(transactionHistory.getStatus().toString())
+                .transactionId(transactionHistory.getId())
                 .createdAt(transactionHistory.getCreatedAt())
                 .build();
     }

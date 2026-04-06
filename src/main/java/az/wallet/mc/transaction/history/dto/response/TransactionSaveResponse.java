@@ -9,7 +9,6 @@ import java.util.UUID;
 @Data
 @Builder
 public class TransactionSaveResponse {
-    private UUID id;
-    private String status;
+    private UUID transactionId;
     private LocalDateTime createdAt;
 }
