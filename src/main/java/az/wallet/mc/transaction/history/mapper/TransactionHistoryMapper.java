@@ -2,6 +2,7 @@ package az.wallet.mc.transaction.history.mapper;
 
 import az.wallet.mc.transaction.history.domain.TransactionHistory;
 import az.wallet.mc.transaction.history.dto.request.TransactionSaveRequest;
+import az.wallet.mc.transaction.history.dto.response.TransactionResponse;
 import az.wallet.mc.transaction.history.dto.response.TransactionSaveResponse;
 import org.springframework.stereotype.Component;
 
@@ -24,6 +25,16 @@ public class TransactionHistoryMapper {
     public TransactionSaveResponse createSavedTransactionResponse(TransactionHistory transactionHistory) {
         return TransactionSaveResponse.builder()
                 .transactionId(transactionHistory.getId())
+                .createdAt(transactionHistory.getCreatedAt())
+                .build();
+    }
+
+    public TransactionResponse transactionToTransactionResponse(TransactionHistory transactionHistory) {
+        return TransactionResponse.builder()
+                .id(transactionHistory.getId())
+                .amount(transactionHistory.getAmount())
+                .type(transactionHistory.getType())
+                .status(transactionHistory.getStatus())
                 .createdAt(transactionHistory.getCreatedAt())
                 .build();
     }
